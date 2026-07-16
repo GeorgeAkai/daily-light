@@ -1,21 +1,21 @@
-# ✦ Daily Light — Bible Verses & Inspiration
+# ✦ Daily Light: Bible Verses & Inspiration
 
 An inspirational Next.js app designed to encourage people every day.
 
 ## Features
 
-- **Find your verse** — enter a random number, your birthday, or a word on
+- **Find your verse**: enter a random number, your birthday, or a word on
   your heart and receive a Bible verse (the same input always returns the
   same verse, like a personal verse for that number/word).
-- **Daily inspiration** — a motivational quote paired with a Bible verse
+- **Daily inspiration**: a motivational quote paired with a Bible verse
   that changes every day.
-- **Notes & Prayers** — write a note of the day or a prayer; entries are
+- **Notes & Prayers**: write a note of the day or a prayer; entries are
   saved privately in your browser (localStorage).
-- **My Goals** — list the goals you are believing for this year, with
+- **My Goals**: list the goals you are believing for this year, with
   checkboxes and a progress bar to celebrate goals achieved.
-- **Bible Quiz** — flip cards with easy-to-medium Bible questions that
+- **Bible Quiz**: flip cards with easy-to-medium Bible questions that
   turn over to reveal the answer, with difficulty filters and shuffle.
-- **Soft colors & light/dark mode** — a gentle pastel palette with a
+- **Soft colors & light/dark mode**: a gentle pastel palette with a
   theme toggle that remembers your preference.
 
 Verse text is from the World English Bible (WEB), a public domain

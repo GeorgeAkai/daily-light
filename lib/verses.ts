@@ -366,7 +366,7 @@ export const verses: Verse[] = [
 
 /**
  * Deterministic string hash (FNV-1a) so the same input always
- * returns the same verse — a number, a birthday, or a word all work.
+ * returns the same verse, whether it is a number, a birthday, or a word.
  */
 export function hashInput(input: string): number {
   const normalized = input.trim().toLowerCase();

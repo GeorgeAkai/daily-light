@@ -42,7 +42,7 @@ export default function DailyQuote() {
           <div className="rounded-2xl bg-card/70 p-4">
             <p className="text-sm leading-relaxed">“{daily.verse.text}”</p>
             <p className="mt-2 text-sm font-semibold text-primary">
-              — {daily.verse.reference}
+              {daily.verse.reference}
             </p>
           </div>
         </div>

@@ -12,10 +12,26 @@ interface Goal {
 
 const STORAGE_KEY = "daily-light-goals";
 const NO_GOALS: Goal[] = [];
+const MAX_GOAL_LENGTH = 300;
+
+const isGoalList = (value: unknown): boolean =>
+  Array.isArray(value) &&
+  value.every(
+    (g) =>
+      g &&
+      typeof g === "object" &&
+      typeof (g as Goal).id === "string" &&
+      typeof (g as Goal).text === "string" &&
+      typeof (g as Goal).achieved === "boolean"
+  );
 
 export default function GoalsPage() {
   const hydrated = useHydrated();
-  const [goals, setGoals] = useLocalStorage<Goal[]>(STORAGE_KEY, NO_GOALS);
+  const [goals, setGoals] = useLocalStorage<Goal[]>(
+    STORAGE_KEY,
+    NO_GOALS,
+    isGoalList
+  );
   const [text, setText] = useState("");
   const year = new Date().getFullYear();
 
@@ -24,7 +40,7 @@ export default function GoalsPage() {
     if (!text.trim()) return;
     const goal: Goal = {
       id: crypto.randomUUID(),
-      text: text.trim(),
+      text: text.trim().slice(0, MAX_GOAL_LENGTH),
       achieved: false,
       createdAt: new Date().toISOString(),
     };
@@ -51,8 +67,8 @@ export default function GoalsPage() {
           Goals I&apos;m believing for in {year} 🎯
         </h1>
         <p className="mx-auto mt-2 max-w-xl text-muted">
-          “Commit your deeds to Yahweh, and your plans shall succeed.” —
-          Proverbs 16:3
+          “Commit your deeds to Yahweh, and your plans shall succeed.”
+          (Proverbs 16:3)
         </p>
       </section>
 
@@ -84,6 +100,7 @@ export default function GoalsPage() {
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
+          maxLength={MAX_GOAL_LENGTH}
           placeholder="I am believing for…"
           className="flex-1 rounded-2xl border border-border-soft bg-background px-4 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-soft"
         />
@@ -99,7 +116,7 @@ export default function GoalsPage() {
       <section className="space-y-3">
         {hydrated && goals.length === 0 && (
           <p className="text-center text-sm text-muted">
-            No goals yet — write down what you&apos;re believing for this
+            No goals yet. Write down what you&apos;re believing for this
             year. 🌱
           </p>
         )}

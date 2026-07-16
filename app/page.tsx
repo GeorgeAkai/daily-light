@@ -31,7 +31,7 @@ export default function Home() {
           Be inspired today
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-muted">
-          A gentle place to find encouragement — receive a verse, reflect,
+          A gentle place to find encouragement. Receive a verse, reflect,
           pray, and keep believing.
         </p>
       </section>

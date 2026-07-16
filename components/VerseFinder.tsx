@@ -36,7 +36,7 @@ export default function VerseFinder() {
         Find your verse ✨
       </h2>
       <p className="mt-1 text-sm text-muted">
-        Share a number, your birthday, or a word on your heart — and receive a
+        Share a number, your birthday, or a word on your heart and receive a
         verse to carry with you.
       </p>
 
@@ -65,6 +65,7 @@ export default function VerseFinder() {
           inputMode={mode === "number" ? "numeric" : "text"}
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          maxLength={100}
           placeholder={placeholders[mode]}
           aria-label={
             mode === "birthday" ? "Enter your birthday" : placeholders[mode]
@@ -92,7 +93,7 @@ export default function VerseFinder() {
             “{verse.text}”
           </p>
           <footer className="mt-3 text-sm font-semibold text-primary">
-            — {verse.reference}
+            {verse.reference}
           </footer>
         </blockquote>
       )}

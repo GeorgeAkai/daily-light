@@ -12,12 +12,26 @@ interface Entry {
 
 const STORAGE_KEY = "daily-light-entries";
 const NO_ENTRIES: Entry[] = [];
+const MAX_ENTRY_LENGTH = 5000;
+
+const isEntryList = (value: unknown): boolean =>
+  Array.isArray(value) &&
+  value.every(
+    (e) =>
+      e &&
+      typeof e === "object" &&
+      typeof (e as Entry).id === "string" &&
+      typeof (e as Entry).text === "string" &&
+      typeof (e as Entry).date === "string" &&
+      ((e as Entry).type === "note" || (e as Entry).type === "prayer")
+  );
 
 export default function NotesPage() {
   const hydrated = useHydrated();
   const [entries, setEntries] = useLocalStorage<Entry[]>(
     STORAGE_KEY,
-    NO_ENTRIES
+    NO_ENTRIES,
+    isEntryList
   );
   const [type, setType] = useState<Entry["type"]>("note");
   const [text, setText] = useState("");
@@ -28,7 +42,7 @@ export default function NotesPage() {
     const entry: Entry = {
       id: crypto.randomUUID(),
       type,
-      text: text.trim(),
+      text: text.trim().slice(0, MAX_ENTRY_LENGTH),
       date: new Date().toISOString(),
     };
     setEntries((prev) => [entry, ...prev]);
@@ -84,6 +98,7 @@ export default function NotesPage() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={4}
+          maxLength={MAX_ENTRY_LENGTH}
           placeholder={
             type === "note"
               ? "What is on your mind today?"
@@ -103,7 +118,7 @@ export default function NotesPage() {
       <section className="space-y-3">
         {hydrated && entries.length === 0 && (
           <p className="text-center text-sm text-muted">
-            No entries yet — your first note or prayer will appear here. 🌱
+            No entries yet. Your first note or prayer will appear here. 🌱
           </p>
         )}
         {entries.map((entry) => (

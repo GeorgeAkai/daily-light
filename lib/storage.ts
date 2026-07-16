@@ -23,10 +23,17 @@ function subscribe(callback: () => void) {
   };
 }
 
-function readItem<T>(key: string, fallback: T): T {
+function readItem<T>(
+  key: string,
+  fallback: T,
+  isValid?: (value: unknown) => boolean
+): T {
   try {
     const raw = localStorage.getItem(key);
-    return raw == null ? fallback : (JSON.parse(raw) as T);
+    if (raw == null) return fallback;
+    const parsed = JSON.parse(raw) as unknown;
+    if (isValid && !isValid(parsed)) return fallback;
+    return parsed as T;
   } catch {
     return fallback;
   }
@@ -34,9 +41,15 @@ function readItem<T>(key: string, fallback: T): T {
 
 /**
  * localStorage-backed state. Server (and first hydration pass) sees the
- * fallback; the real stored value streams in immediately after.
+ * fallback; the real stored value streams in immediately after. Stored
+ * data is untrusted (it can be corrupted or edited by hand), so callers
+ * can pass an `isValid` shape check; invalid data falls back safely.
  */
-export function useLocalStorage<T>(key: string, fallback: T) {
+export function useLocalStorage<T>(
+  key: string,
+  fallback: T,
+  isValid?: (value: unknown) => boolean
+) {
   const raw = useSyncExternalStore(
     subscribe,
     () => localStorage.getItem(key),
@@ -46,23 +59,29 @@ export function useLocalStorage<T>(key: string, fallback: T) {
   const value = useMemo<T>(() => {
     if (raw == null) return fallback;
     try {
-      return JSON.parse(raw) as T;
+      const parsed = JSON.parse(raw) as unknown;
+      if (isValid && !isValid(parsed)) return fallback;
+      return parsed as T;
     } catch {
       return fallback;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- fallback is a stable module-level constant at call sites
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- fallback/isValid are stable module-level constants at call sites
   }, [raw, key]);
 
   const setValue = useCallback(
     (next: T | ((prev: T) => T)) => {
       const resolved =
         typeof next === "function"
-          ? (next as (prev: T) => T)(readItem(key, fallback))
+          ? (next as (prev: T) => T)(readItem(key, fallback, isValid))
           : next;
-      localStorage.setItem(key, JSON.stringify(resolved));
+      try {
+        localStorage.setItem(key, JSON.stringify(resolved));
+      } catch {
+        // Quota exceeded or storage unavailable; keep the app usable.
+      }
       emitStorageChange();
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- fallback is a stable module-level constant at call sites
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- fallback/isValid are stable module-level constants at call sites
     [key]
   );
 

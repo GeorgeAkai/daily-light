@@ -7,7 +7,7 @@ export interface QuizCard {
 export const quizCards: QuizCard[] = [
   {
     question: "How many days did God take to create the world before resting?",
-    answer: "Six days — He rested on the seventh. (Genesis 2:2)",
+    answer: "Six days. He rested on the seventh. (Genesis 2:2)",
     difficulty: "easy",
   },
   {
@@ -67,7 +67,7 @@ export const quizCards: QuizCard[] = [
   },
   {
     question: "How many books are in the whole Bible?",
-    answer: "66 — 39 in the Old Testament and 27 in the New Testament.",
+    answer: "66 books: 39 in the Old Testament and 27 in the New Testament.",
     difficulty: "medium",
   },
   {

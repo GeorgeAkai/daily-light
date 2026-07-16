@@ -14,7 +14,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Daily Light — Bible Verses & Inspiration",
+  title: "Daily Light | Bible Verses & Inspiration",
   description:
     "Enter a number, birthday, or word and receive an inspiring Bible verse. Daily quotes, prayer notes, yearly goals, and a Bible quiz game.",
 };
@@ -50,7 +50,7 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="border-t border-border-soft py-6 text-center text-sm text-muted">
-          Made with 💜 to inspire — “Your word is a lamp to my feet” (Psalm
+          Made with 💜 to inspire. “Your word is a lamp to my feet” (Psalm
           119:105)
         </footer>
       </body>
