@@ -1,42 +1,51 @@
 # ✦ Daily Light: Bible Verses & Inspiration
 
-An inspirational Next.js app designed to encourage people every day.
+An inspirational React Native app (built with Expo) that runs on iOS,
+Android, and the web from one codebase.
 
 ## Features
 
 - **Find your verse**: enter a random number, your birthday, or a word on
-  your heart and receive a Bible verse (the same input always returns the
-  same verse, like a personal verse for that number/word).
+  your heart and receive a Bible verse. Word searches return a random
+  verse that actually contains the word, with a Show Another button.
 - **Daily inspiration**: a motivational quote paired with a Bible verse
   that changes every day.
 - **Notes & Prayers**: write a note of the day or a prayer; entries are
-  saved privately in your browser (localStorage).
-- **My Goals**: list the goals you are believing for this year, with
+  saved privately on your device.
+- **Goals**: list the goals you are believing for this year, with
   checkboxes and a progress bar to celebrate goals achieved.
-- **Trivia**: flip cards with easy-to-medium Bible questions that
-  turn over to reveal the answer, with difficulty filters and shuffle.
+- **Trivia**: flip cards with easy-to-medium Bible questions, with
+  difficulty filters and shuffle.
 - **Bible Quiz**: ten random multiple-choice questions per round (easy,
   medium, and hard) drawn from a pool of 50, with a score and an
   encouraging word no matter the result.
 - **My Profile**: a private profile with your photo, favorite verse,
-  favorite books, hobbies, and what inspires you. Stays on your device.
+  favorite books, hobbies, and what inspires you.
 - **Soft colors & light/dark mode**: a gentle pastel palette with a
   theme toggle that remembers your preference.
 
 Verse text is from the World English Bible (WEB), a public domain
 translation.
 
+## Storage
+
+All data (notes, prayers, goals, profile, theme) is stored on the
+device with AsyncStorage. There is no server, no account, and nothing
+is ever uploaded.
+
 ## Getting started
 
 ```bash
 npm install
-npm run dev
+npx expo start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Then press `i` for the iOS simulator, `a` for Android, or `w` for the
+web, or scan the QR code with the Expo Go app on your phone.
 
 ## Tech stack
 
-- [Next.js](https://nextjs.org) (App Router) + React + TypeScript
-- [Tailwind CSS 4](https://tailwindcss.com)
-- localStorage for private, on-device persistence (no account needed)
+- [Expo](https://expo.dev) + [React Native](https://reactnative.dev) + TypeScript
+- [Expo Router](https://docs.expo.dev/router/introduction/) (file-based tabs + stack)
+- AsyncStorage for private, on-device persistence
+- expo-image-picker for the profile photo
