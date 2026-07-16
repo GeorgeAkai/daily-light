@@ -1,10 +1,10 @@
-export interface QuizCard {
+export interface TriviaCard {
   question: string;
   answer: string;
   difficulty: "easy" | "medium";
 }
 
-export const quizCards: QuizCard[] = [
+export const triviaCards: TriviaCard[] = [
   {
     question: "How many days did God take to create the world before resting?",
     answer: "Six days. He rested on the seventh. (Genesis 2:2)",

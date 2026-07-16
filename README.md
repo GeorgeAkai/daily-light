@@ -13,8 +13,13 @@ An inspirational Next.js app designed to encourage people every day.
   saved privately in your browser (localStorage).
 - **My Goals**: list the goals you are believing for this year, with
   checkboxes and a progress bar to celebrate goals achieved.
-- **Bible Quiz**: flip cards with easy-to-medium Bible questions that
+- **Trivia**: flip cards with easy-to-medium Bible questions that
   turn over to reveal the answer, with difficulty filters and shuffle.
+- **Bible Quiz**: ten random multiple-choice questions per round (easy,
+  medium, and hard) drawn from a pool of 50, with a score and an
+  encouraging word no matter the result.
+- **My Profile**: a private profile with your photo, favorite verse,
+  favorite books, hobbies, and what inspires you. Stays on your device.
 - **Soft colors & light/dark mode**: a gentle pastel palette with a
   theme toggle that remembers your preference.
 

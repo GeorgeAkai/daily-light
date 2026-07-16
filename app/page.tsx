@@ -16,10 +16,22 @@ const featureCards = [
     text: "Set the goals you're believing for this year.",
   },
   {
-    href: "/quiz",
+    href: "/trivia",
     icon: "🃏",
+    title: "Trivia",
+    text: "Flip cards and learn at your own pace.",
+  },
+  {
+    href: "/quiz",
+    icon: "🏆",
     title: "Bible Quiz",
-    text: "Flip cards and test your Bible knowledge.",
+    text: "Ten random questions. How many can you get?",
+  },
+  {
+    href: "/profile",
+    icon: "🌸",
+    title: "My Profile",
+    text: "Your photo, favorite verse, and what inspires you.",
   },
 ];
 

@@ -8,7 +8,9 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/notes", label: "Notes & Prayers" },
   { href: "/goals", label: "My Goals" },
-  { href: "/quiz", label: "Bible Quiz" },
+  { href: "/trivia", label: "Trivia" },
+  { href: "/quiz", label: "Quiz" },
+  { href: "/profile", label: "Profile" },
 ];
 
 export default function Nav() {
