@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { verseForInput, type Verse } from "@/lib/verses";
+import {
+  randomVerseForWord,
+  verseForInput,
+  type Verse,
+} from "@/lib/verses";
 
 type Mode = "number" | "birthday" | "word";
 
@@ -14,20 +18,48 @@ const modes: { id: Mode; label: string; icon: string }[] = [
 const placeholders: Record<Mode, string> = {
   number: "Enter any number, e.g. 7 or 2026",
   birthday: "",
-  word: "Enter a word, e.g. hope, family, dream…",
+  word: "Enter a word, e.g. hope, love, peace…",
 };
 
 export default function VerseFinder() {
   const [mode, setMode] = useState<Mode>("word");
   const [input, setInput] = useState("");
   const [verse, setVerse] = useState<Verse | null>(null);
+  const [matchCount, setMatchCount] = useState<number | null>(null);
+  const [searchedWord, setSearchedWord] = useState("");
   const [revealKey, setRevealKey] = useState(0);
+
+  const revealWordVerse = (previous: Verse | null) => {
+    const word = input.trim();
+    const match = randomVerseForWord(word, previous);
+    if (match) {
+      setVerse(match.verse);
+      setMatchCount(match.matchCount);
+    } else {
+      // No verse contains the word, so give a verse chosen for it instead.
+      setVerse(verseForInput(`word:${word}`));
+      setMatchCount(0);
+    }
+    setSearchedWord(word);
+    setRevealKey((k) => k + 1);
+  };
 
   const findVerse = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
+    if (mode === "word") {
+      revealWordVerse(null);
+      return;
+    }
     setVerse(verseForInput(`${mode}:${input}`));
+    setMatchCount(null);
+    setSearchedWord("");
     setRevealKey((k) => k + 1);
+  };
+
+  const switchMode = (next: Mode) => {
+    setMode(next);
+    setInput("");
   };
 
   return (
@@ -44,10 +76,7 @@ export default function VerseFinder() {
         {modes.map(({ id, label, icon }) => (
           <button
             key={id}
-            onClick={() => {
-              setMode(id);
-              setInput("");
-            }}
+            onClick={() => switchMode(id)}
             className={`rounded-full px-4 py-2 text-sm transition ${
               mode === id
                 ? "bg-primary text-white shadow-sm"
@@ -95,6 +124,27 @@ export default function VerseFinder() {
           <footer className="mt-3 text-sm font-semibold text-primary">
             {verse.reference}
           </footer>
+
+          {matchCount !== null && (
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-card pt-3">
+              <span className="text-xs text-muted">
+                {matchCount > 0
+                  ? `One of ${matchCount} verse${
+                      matchCount === 1 ? "" : "s"
+                    } speaking of “${searchedWord}”`
+                  : `No verse mentions “${searchedWord}”, so here is one chosen just for it`}
+              </span>
+              {matchCount > 1 && (
+                <button
+                  type="button"
+                  onClick={() => revealWordVerse(verse)}
+                  className="rounded-full bg-card px-4 py-1.5 text-xs font-medium text-primary transition hover:opacity-80"
+                >
+                  🔄 Show another
+                </button>
+              )}
+            </div>
+          )}
         </blockquote>
       )}
     </section>

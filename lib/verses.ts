@@ -362,6 +362,301 @@ export const verses: Verse[] = [
     text: "Cause me to hear your loving kindness in the morning, for I trust in you. Cause me to know the way in which I should walk, for I lift up my soul to you.",
     theme: "Guidance",
   },
+  {
+    reference: "Genesis 28:15",
+    text: "Behold, I am with you, and will keep you, wherever you go. For I will not leave you until I have done that which I have spoken of to you.",
+    theme: "Presence",
+  },
+  {
+    reference: "Genesis 50:20",
+    text: "As for you, you meant evil against me, but God meant it for good, to save many people alive.",
+    theme: "Redemption",
+  },
+  {
+    reference: "Exodus 14:14",
+    text: "Yahweh will fight for you, and you shall be still.",
+    theme: "Deliverance",
+  },
+  {
+    reference: "Exodus 33:14",
+    text: "My presence will go with you, and I will give you rest.",
+    theme: "Rest",
+  },
+  {
+    reference: "Numbers 6:24-26",
+    text: "Yahweh bless you, and keep you. Yahweh make his face to shine on you, and be gracious to you. Yahweh lift up his face toward you, and give you peace.",
+    theme: "Blessing",
+  },
+  {
+    reference: "Deuteronomy 33:27",
+    text: "The eternal God is your dwelling place. Underneath are the everlasting arms.",
+    theme: "Security",
+  },
+  {
+    reference: "Ruth 1:16",
+    text: "Where you go, I will go; and where you stay, I will stay. Your people shall be my people, and your God my God.",
+    theme: "Loyalty",
+  },
+  {
+    reference: "1 Samuel 16:7",
+    text: "For Yahweh sees not as man sees; for man looks at the outward appearance, but Yahweh looks at the heart.",
+    theme: "Heart",
+  },
+  {
+    reference: "2 Samuel 22:31",
+    text: "As for God, his way is perfect. Yahweh's word is tested. He is a shield to all those who take refuge in him.",
+    theme: "Refuge",
+  },
+  {
+    reference: "1 Chronicles 16:11",
+    text: "Seek Yahweh and his strength. Seek his face forever more.",
+    theme: "Seeking",
+  },
+  {
+    reference: "2 Chronicles 15:7",
+    text: "But you be strong! Don't let your hands be slack, for your work will be rewarded.",
+    theme: "Diligence",
+  },
+  {
+    reference: "Nehemiah 8:10",
+    text: "Don't be grieved, for the joy of Yahweh is your strength.",
+    theme: "Joy",
+  },
+  {
+    reference: "Esther 4:14",
+    text: "Who knows if you haven't come to the kingdom for such a time as this?",
+    theme: "Purpose",
+  },
+  {
+    reference: "Job 19:25",
+    text: "But as for me, I know that my Redeemer lives. In the end, he will stand upon the earth.",
+    theme: "Redemption",
+  },
+  {
+    reference: "Ecclesiastes 3:11",
+    text: "He has made everything beautiful in its time. He has also set eternity in their hearts.",
+    theme: "Beauty",
+  },
+  {
+    reference: "Song of Solomon 2:11-12",
+    text: "For behold, the winter is past. The rain is over and gone. The flowers appear on the earth. The time of the singing has come.",
+    theme: "Seasons",
+  },
+  {
+    reference: "Isaiah 12:2",
+    text: "Behold, God is my salvation. I will trust, and will not be afraid; for Yah, Yahweh, is my strength and song; and he has become my salvation.",
+    theme: "Salvation",
+  },
+  {
+    reference: "Jeremiah 17:7-8",
+    text: "Blessed is the man who trusts in Yahweh, and whose confidence is in Yahweh. For he will be as a tree planted by the waters.",
+    theme: "Trust",
+  },
+  {
+    reference: "Jeremiah 32:17",
+    text: "Ah Lord Yahweh! Behold, you have made the heavens and the earth by your great power. There is nothing too hard for you.",
+    theme: "Power",
+  },
+  {
+    reference: "Jeremiah 33:3",
+    text: "Call to me, and I will answer you, and will show you great and difficult things, which you don't know.",
+    theme: "Prayer",
+  },
+  {
+    reference: "Ezekiel 36:26",
+    text: "I will also give you a new heart, and I will put a new spirit within you.",
+    theme: "Renewal",
+  },
+  {
+    reference: "Daniel 12:3",
+    text: "Those who are wise will shine as the brightness of the expanse. Those who turn many to righteousness will shine as the stars forever and ever.",
+    theme: "Wisdom",
+  },
+  {
+    reference: "Joel 2:25",
+    text: "I will restore to you the years that the swarming locust has eaten.",
+    theme: "Restoration",
+  },
+  {
+    reference: "Micah 7:8",
+    text: "When I fall, I will arise. When I sit in darkness, Yahweh will be a light to me.",
+    theme: "Resilience",
+  },
+  {
+    reference: "Zechariah 4:6",
+    text: "Not by might, nor by power, but by my Spirit, says Yahweh of Armies.",
+    theme: "Spirit",
+  },
+  {
+    reference: "Mark 9:23",
+    text: "All things are possible to him who believes.",
+    theme: "Faith",
+  },
+  {
+    reference: "Mark 10:27",
+    text: "With men it is impossible, but not with God, for all things are possible with God.",
+    theme: "Possibility",
+  },
+  {
+    reference: "Mark 11:24",
+    text: "All things, whatever you pray and ask for, believe that you have received them, and you shall have them.",
+    theme: "Prayer",
+  },
+  {
+    reference: "Luke 6:38",
+    text: "Give, and it will be given to you: good measure, pressed down, shaken together, and running over.",
+    theme: "Generosity",
+  },
+  {
+    reference: "Luke 12:32",
+    text: "Don't be afraid, little flock, for it is your Father's good pleasure to give you the Kingdom.",
+    theme: "Assurance",
+  },
+  {
+    reference: "John 8:12",
+    text: "I am the light of the world. He who follows me will not walk in the darkness, but will have the light of life.",
+    theme: "Light",
+  },
+  {
+    reference: "John 10:10",
+    text: "I came that they may have life, and may have it abundantly.",
+    theme: "Life",
+  },
+  {
+    reference: "John 15:5",
+    text: "I am the vine. You are the branches. He who remains in me and I in him bears much fruit, for apart from me you can do nothing.",
+    theme: "Abiding",
+  },
+  {
+    reference: "Acts 1:8",
+    text: "But you will receive power when the Holy Spirit has come upon you.",
+    theme: "Power",
+  },
+  {
+    reference: "Acts 20:35",
+    text: "Remember the words of the Lord Jesus, that he himself said, 'It is more blessed to give than to receive.'",
+    theme: "Generosity",
+  },
+  {
+    reference: "Romans 5:3-4",
+    text: "We also rejoice in our sufferings, knowing that suffering produces perseverance; and perseverance, proven character; and proven character, hope.",
+    theme: "Hope",
+  },
+  {
+    reference: "Romans 8:38-39",
+    text: "For I am persuaded that neither death, nor life, nor things present, nor things to come, nor any other created thing will be able to separate us from God's love which is in Christ Jesus our Lord.",
+    theme: "Love",
+  },
+  {
+    reference: "1 Corinthians 10:13",
+    text: "God is faithful, who will not allow you to be tempted above what you are able, but will with the temptation also make the way of escape.",
+    theme: "Faithfulness",
+  },
+  {
+    reference: "1 Corinthians 13:4",
+    text: "Love is patient and is kind. Love doesn't envy. Love doesn't brag, is not proud.",
+    theme: "Love",
+  },
+  {
+    reference: "2 Corinthians 5:17",
+    text: "Therefore if anyone is in Christ, he is a new creation. The old things have passed away. Behold, all things have become new.",
+    theme: "New Beginnings",
+  },
+  {
+    reference: "Galatians 6:2",
+    text: "Bear one another's burdens, and so fulfill the law of Christ.",
+    theme: "Community",
+  },
+  {
+    reference: "Ephesians 3:20",
+    text: "Now to him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us.",
+    theme: "Abundance",
+  },
+  {
+    reference: "Ephesians 6:10",
+    text: "Finally, be strong in the Lord and in the strength of his might.",
+    theme: "Strength",
+  },
+  {
+    reference: "Philippians 1:6",
+    text: "Being confident of this very thing, that he who began a good work in you will complete it until the day of Jesus Christ.",
+    theme: "Confidence",
+  },
+  {
+    reference: "Philippians 4:8",
+    text: "Whatever things are true, whatever things are honorable, whatever things are just, whatever things are pure, whatever things are lovely, whatever things are of good report: if there is any virtue and if there is any praise, think about these things.",
+    theme: "Mindset",
+  },
+  {
+    reference: "Colossians 3:15",
+    text: "And let the peace of God rule in your hearts, to which also you were called in one body, and be thankful.",
+    theme: "Peace",
+  },
+  {
+    reference: "1 Thessalonians 5:11",
+    text: "Therefore exhort one another, and build each other up, even as you also do.",
+    theme: "Encouragement",
+  },
+  {
+    reference: "1 Timothy 4:12",
+    text: "Let no man despise your youth; but be an example to those who believe, in word, in your way of life, in love, in spirit, in faith, and in purity.",
+    theme: "Example",
+  },
+  {
+    reference: "2 Timothy 4:7",
+    text: "I have fought the good fight. I have finished the course. I have kept the faith.",
+    theme: "Perseverance",
+  },
+  {
+    reference: "Hebrews 10:23",
+    text: "Let's hold fast the confession of our hope without wavering, for he who promised is faithful.",
+    theme: "Hope",
+  },
+  {
+    reference: "Hebrews 12:1",
+    text: "Let's also lay aside every weight and the sin which so easily entangles us, and let's run with perseverance the race that is set before us.",
+    theme: "Perseverance",
+  },
+  {
+    reference: "James 1:2-3",
+    text: "Count it all joy, my brothers, when you fall into various temptations, knowing that the testing of your faith produces endurance.",
+    theme: "Endurance",
+  },
+  {
+    reference: "James 4:8",
+    text: "Draw near to God, and he will draw near to you.",
+    theme: "Nearness",
+  },
+  {
+    reference: "1 Peter 2:9",
+    text: "But you are a chosen race, a royal priesthood, a holy nation, a people for God's own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light.",
+    theme: "Identity",
+  },
+  {
+    reference: "1 John 5:14",
+    text: "This is the boldness which we have toward him, that if we ask anything according to his will, he listens to us.",
+    theme: "Prayer",
+  },
+  {
+    reference: "3 John 1:2",
+    text: "Beloved, I pray that you may prosper in all things and be healthy, even as your soul prospers.",
+    theme: "Wellbeing",
+  },
+  {
+    reference: "Jude 1:24",
+    text: "Now to him who is able to keep them from stumbling, and to present you faultless before the presence of his glory in great joy.",
+    theme: "Keeping",
+  },
+  {
+    reference: "Revelation 3:20",
+    text: "Behold, I stand at the door and knock. If anyone hears my voice and opens the door, then I will come in to him.",
+    theme: "Invitation",
+  },
+  {
+    reference: "Revelation 21:4",
+    text: "He will wipe away every tear from their eyes. Death will be no more; neither will there be mourning, nor crying, nor pain any more.",
+    theme: "Comfort",
+  },
 ];
 
 /**
@@ -380,4 +675,38 @@ export function hashInput(input: string): number {
 
 export function verseForInput(input: string): Verse {
   return verses[hashInput(input) % verses.length];
+}
+
+/**
+ * All verses whose text or theme contains the given word. Matches at
+ * word starts, so "hope" also finds "hoped" and "hopes", but "art"
+ * doesn't match "heart".
+ */
+export function versesMatching(word: string): Verse[] {
+  const normalized = word.trim().toLowerCase();
+  if (!normalized) return [];
+  const escaped = normalized.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(`\\b${escaped}`, "i");
+  return verses.filter(
+    (verse) => pattern.test(verse.text) || pattern.test(verse.theme)
+  );
+}
+
+/**
+ * A random verse containing the word, avoiding an immediate repeat of
+ * `previous` when more than one verse matches. Returns null when no
+ * verse contains the word.
+ */
+export function randomVerseForWord(
+  word: string,
+  previous?: Verse | null
+): { verse: Verse; matchCount: number } | null {
+  const matches = versesMatching(word);
+  if (matches.length === 0) return null;
+  const pool =
+    matches.length > 1 && previous
+      ? matches.filter((v) => v.reference !== previous.reference)
+      : matches;
+  const verse = pool[Math.floor(Math.random() * pool.length)];
+  return { verse, matchCount: matches.length };
 }
