@@ -11,6 +11,7 @@ import {
 
 import {
   Body,
+  BrandMark,
   Card,
   MutedText,
   PrimaryButton,
@@ -119,6 +120,7 @@ export default function ProfileScreen() {
 
   return (
     <Screen>
+      <BrandMark />
       <View>
         <Title>My Profile 🌸</Title>
         <Subtitle>

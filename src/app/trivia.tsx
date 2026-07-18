@@ -13,7 +13,7 @@ import { Spacing } from "@/constants/theme";
 import { useAppTheme } from "@/lib/theme-context";
 import { shuffleCards, triviaCards, type TriviaCard } from "@/lib/trivia";
 
-type Filter = "all" | "easy" | "medium";
+type Filter = "all" | "easy" | "medium" | "hard";
 
 function FlipCard({ card }: { card: TriviaCard }) {
   const { colors } = useAppTheme();
@@ -51,7 +51,9 @@ function FlipCard({ card }: { card: TriviaCard }) {
                 backgroundColor:
                   card.difficulty === "easy"
                     ? colors.sageSoft
-                    : colors.accentSoft,
+                    : card.difficulty === "medium"
+                      ? colors.accentSoft
+                      : colors.primarySoft,
               },
             ]}
           >
@@ -60,7 +62,11 @@ function FlipCard({ card }: { card: TriviaCard }) {
                 fontSize: 12,
                 fontWeight: "600",
                 color:
-                  card.difficulty === "easy" ? colors.sage : colors.accent,
+                  card.difficulty === "easy"
+                    ? colors.sage
+                    : card.difficulty === "medium"
+                      ? colors.accent
+                      : colors.primary,
               }}
             >
               {card.difficulty}
@@ -98,7 +104,7 @@ export default function TriviaScreen() {
       </Subtitle>
 
       <View style={styles.filterRow}>
-        {(["all", "easy", "medium"] as Filter[]).map((f) => (
+        {(["all", "easy", "medium", "hard"] as Filter[]).map((f) => (
           <Chip
             key={f}
             label={f === "all" ? "All questions" : f}

@@ -9,6 +9,7 @@ import {
 
 import {
   Body,
+  BrandMark,
   Card,
   MutedText,
   PrimaryButton,
@@ -82,6 +83,7 @@ export default function GoalsScreen() {
 
   return (
     <Screen>
+      <BrandMark />
       <View>
         <Title>Goals for {year} 🎯</Title>
         <Subtitle>

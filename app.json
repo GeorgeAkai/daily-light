@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Daily Light",
+    "name": "Daily Promise",
     "slug": "daily-light",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -34,7 +34,7 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Daily Light uses your photo library only to let you pick a private profile picture. It never leaves your device."
+          "photosPermission": "Daily Promise uses your photo library only to let you pick a private profile picture. It never leaves your device."
         }
       ]
     ],

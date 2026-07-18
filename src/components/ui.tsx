@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import {
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -13,6 +14,28 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Fonts, MaxContentWidth, Spacing } from "@/constants/theme";
 import { useAppTheme } from "@/lib/theme-context";
+
+/** Small logo + name lockup shown at the top of every screen. */
+export function BrandMark() {
+  const { colors } = useAppTheme();
+  return (
+    <View style={styles.brandMark}>
+      <Image
+        source={require("@/assets/images/logo.png")}
+        style={styles.brandLogo}
+        accessibilityLabel="Daily Promise logo"
+      />
+      <Text
+        style={[
+          styles.brandName,
+          { color: colors.primary, fontFamily: Fonts?.serif },
+        ]}
+      >
+        Daily Promise
+      </Text>
+    </View>
+  );
+}
 
 /** Scrollable themed page wrapper used by every screen. */
 export function Screen({ children }: { children: ReactNode }) {
@@ -206,6 +229,14 @@ export function VerseBlock({
 }
 
 const styles = StyleSheet.create({
+  brandMark: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: Spacing.two,
+  },
+  brandLogo: { width: 28, height: 28, borderRadius: 999 },
+  brandName: { fontSize: 16, fontWeight: "600" },
   safe: { flex: 1 },
   scrollContent: { flexGrow: 1, paddingBottom: Spacing.six },
   inner: {
