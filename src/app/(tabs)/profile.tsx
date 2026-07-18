@@ -19,36 +19,16 @@ import {
   Title,
 } from "@/components/ui";
 import { Fonts, Spacing } from "@/constants/theme";
+import {
+  EMPTY_PROFILE,
+  isProfile,
+  PROFILE_STORAGE_KEY,
+  type Profile,
+} from "@/lib/profile";
 import { useAppTheme } from "@/lib/theme-context";
 import { useStoredState } from "@/lib/use-stored-state";
 
-interface Profile {
-  name: string;
-  photo: string; // data URI, downscaled by the picker before saving
-  favoriteVerse: string;
-  favoriteBooks: string;
-  hobbies: string;
-  inspiration: string;
-}
-
-const STORAGE_KEY = "daily-light-profile";
-const EMPTY_PROFILE: Profile = {
-  name: "",
-  photo: "",
-  favoriteVerse: "",
-  favoriteBooks: "",
-  hobbies: "",
-  inspiration: "",
-};
 const MAX_FIELD_LENGTH = 500;
-
-const isProfile = (value: unknown): boolean =>
-  !!value &&
-  typeof value === "object" &&
-  !Array.isArray(value) &&
-  (Object.keys(EMPTY_PROFILE) as (keyof Profile)[]).every(
-    (key) => typeof (value as Profile)[key] === "string"
-  );
 
 const fields: {
   key: Exclude<keyof Profile, "photo" | "name">;
@@ -80,7 +60,7 @@ const fields: {
 export default function ProfileScreen() {
   const { colors } = useAppTheme();
   const [profile, setProfile, hydrated] = useStoredState<Profile>(
-    STORAGE_KEY,
+    PROFILE_STORAGE_KEY,
     EMPTY_PROFILE,
     isProfile
   );
