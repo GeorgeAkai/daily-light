@@ -109,45 +109,44 @@ export default function HomeScreen() {
           <SerifText style={{ color: colors.primary, fontWeight: "600" }}>
             ✦ Daily Light
           </SerifText>
-          <View style={styles.topActions}>
-            <Pressable
-              onPress={toggle}
-              accessibilityLabel="Toggle light or dark mode"
+          <Pressable
+            onPress={toggle}
+            accessibilityLabel="Toggle light or dark mode"
+            style={[
+              styles.themeButton,
+              { backgroundColor: colors.card, borderColor: colors.border },
+            ]}
+          >
+            <Text style={{ fontSize: 18 }}>
+              {themeMode === "dark" ? "🌙" : "☀️"}
+            </Text>
+          </Pressable>
+        </View>
+        <Pressable
+          onPress={() => router.push("/profile")}
+          accessibilityLabel="Open my profile"
+          style={styles.avatarWrap}
+        >
+          {profile.photo ? (
+            <Image
+              source={{ uri: profile.photo }}
+              style={[styles.avatar, { borderColor: colors.primary }]}
+            />
+          ) : (
+            <View
               style={[
-                styles.themeButton,
-                { backgroundColor: colors.card, borderColor: colors.border },
+                styles.avatar,
+                styles.avatarPlaceholder,
+                {
+                  borderColor: colors.primarySoft,
+                  backgroundColor: colors.cardSoft,
+                },
               ]}
             >
-              <Text style={{ fontSize: 18 }}>
-                {themeMode === "dark" ? "🌙" : "☀️"}
-              </Text>
-            </Pressable>
-            <Pressable
-              onPress={() => router.push("/profile")}
-              accessibilityLabel="Open my profile"
-            >
-              {profile.photo ? (
-                <Image
-                  source={{ uri: profile.photo }}
-                  style={[styles.avatar, { borderColor: colors.primarySoft }]}
-                />
-              ) : (
-                <View
-                  style={[
-                    styles.avatar,
-                    styles.avatarPlaceholder,
-                    {
-                      borderColor: colors.primarySoft,
-                      backgroundColor: colors.cardSoft,
-                    },
-                  ]}
-                >
-                  <Text style={{ fontSize: 18 }}>🙂</Text>
-                </View>
-              )}
-            </Pressable>
-          </View>
-        </View>
+              <Text style={{ fontSize: 44 }}>🙂</Text>
+            </View>
+          )}
+        </Pressable>
         <Title>
           {firstName ? `Be inspired, ${firstName}` : "Be inspired today"}
         </Title>
@@ -267,21 +266,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: Spacing.three,
   },
-  topActions: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: Spacing.two,
-  },
   themeButton: {
     borderRadius: 999,
     borderWidth: 1,
     padding: 8,
   },
+  avatarWrap: {
+    alignSelf: "center",
+    marginBottom: Spacing.three,
+  },
   avatar: {
-    width: 40,
-    height: 40,
+    width: 120,
+    height: 120,
     borderRadius: 999,
-    borderWidth: 2,
+    borderWidth: 3,
   },
   avatarPlaceholder: {
     alignItems: "center",
