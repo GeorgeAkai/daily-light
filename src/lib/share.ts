@@ -1,7 +1,7 @@
 import { Share } from "react-native";
 
 /** Public URL of the app; update if the deployment domain changes. */
-export const SITE_URL = "https://daily-light.vercel.app";
+export const SITE_URL = "https://thedailypromise.vercel.app";
 
 export async function inviteFriends() {
   try {
