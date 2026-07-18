@@ -1,5 +1,7 @@
+import { useRouter } from "expo-router";
 import { useMemo, useState } from "react";
 import {
+  Image,
   Pressable,
   StyleSheet,
   Text,
@@ -20,8 +22,15 @@ import {
   VerseBlock,
 } from "@/components/ui";
 import { Fonts, Spacing } from "@/constants/theme";
+import {
+  EMPTY_PROFILE,
+  isProfile,
+  PROFILE_STORAGE_KEY,
+  type Profile,
+} from "@/lib/profile";
 import { quoteOfTheDay } from "@/lib/quotes";
 import { useAppTheme } from "@/lib/theme-context";
+import { useStoredState } from "@/lib/use-stored-state";
 import {
   randomVerseForWord,
   verseForInput,
@@ -44,6 +53,13 @@ const placeholders: Record<Mode, string> = {
 
 export default function HomeScreen() {
   const { colors, mode: themeMode, toggle } = useAppTheme();
+  const router = useRouter();
+  const [profile] = useStoredState<Profile>(
+    PROFILE_STORAGE_KEY,
+    EMPTY_PROFILE,
+    isProfile
+  );
+  const firstName = profile.name.trim().split(/\s+/)[0];
 
   const daily = useMemo(() => quoteOfTheDay(), []);
   const dateLabel = useMemo(
@@ -93,20 +109,48 @@ export default function HomeScreen() {
           <SerifText style={{ color: colors.primary, fontWeight: "600" }}>
             ✦ Daily Light
           </SerifText>
-          <Pressable
-            onPress={toggle}
-            accessibilityLabel="Toggle light or dark mode"
-            style={[
-              styles.themeButton,
-              { backgroundColor: colors.card, borderColor: colors.border },
-            ]}
-          >
-            <Text style={{ fontSize: 18 }}>
-              {themeMode === "dark" ? "🌙" : "☀️"}
-            </Text>
-          </Pressable>
+          <View style={styles.topActions}>
+            <Pressable
+              onPress={toggle}
+              accessibilityLabel="Toggle light or dark mode"
+              style={[
+                styles.themeButton,
+                { backgroundColor: colors.card, borderColor: colors.border },
+              ]}
+            >
+              <Text style={{ fontSize: 18 }}>
+                {themeMode === "dark" ? "🌙" : "☀️"}
+              </Text>
+            </Pressable>
+            <Pressable
+              onPress={() => router.push("/profile")}
+              accessibilityLabel="Open my profile"
+            >
+              {profile.photo ? (
+                <Image
+                  source={{ uri: profile.photo }}
+                  style={[styles.avatar, { borderColor: colors.primarySoft }]}
+                />
+              ) : (
+                <View
+                  style={[
+                    styles.avatar,
+                    styles.avatarPlaceholder,
+                    {
+                      borderColor: colors.primarySoft,
+                      backgroundColor: colors.cardSoft,
+                    },
+                  ]}
+                >
+                  <Text style={{ fontSize: 18 }}>🙂</Text>
+                </View>
+              )}
+            </Pressable>
+          </View>
         </View>
-        <Title>Be inspired today</Title>
+        <Title>
+          {firstName ? `Be inspired, ${firstName}` : "Be inspired today"}
+        </Title>
         <Subtitle>
           A gentle place to find encouragement. Receive a verse, reflect,
           pray, and keep believing.
@@ -223,10 +267,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: Spacing.three,
   },
+  topActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.two,
+  },
   themeButton: {
     borderRadius: 999,
     borderWidth: 1,
     padding: 8,
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 999,
+    borderWidth: 2,
+  },
+  avatarPlaceholder: {
+    alignItems: "center",
+    justifyContent: "center",
   },
   cardHeader: {
     flexDirection: "row",
