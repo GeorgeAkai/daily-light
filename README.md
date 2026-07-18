@@ -43,6 +43,18 @@ npx expo start
 Then press `i` for the iOS simulator, `a` for Android, or `w` for the
 web, or scan the QR code with the Expo Go app on your phone.
 
+## Deploying the web version
+
+The web build is a fully static site. A `vercel.json` is included, so
+deploying to [Vercel](https://vercel.com) is just: import the GitHub
+repo in the Vercel dashboard and deploy. No environment variables or
+database are needed. (Any static host works: `npx expo export
+--platform web` outputs the site to `dist/`.)
+
+The iOS and Android apps are built separately with
+[EAS Build](https://docs.expo.dev/build/introduction/) and distributed
+through the app stores; they are not hosted on Vercel.
+
 ## Tech stack
 
 - [Expo](https://expo.dev) + [React Native](https://reactnative.dev) + TypeScript
