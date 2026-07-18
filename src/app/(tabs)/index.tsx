@@ -106,9 +106,16 @@ export default function HomeScreen() {
     <Screen>
       <View>
         <View style={styles.topRow}>
-          <SerifText style={{ color: colors.primary, fontWeight: "600" }}>
-            ✦ Daily Light
-          </SerifText>
+          <View style={styles.brandRow}>
+            <Image
+              source={require("@/assets/images/logo.png")}
+              style={styles.logo}
+              accessibilityLabel="Daily Light logo"
+            />
+            <SerifText style={{ color: colors.primary, fontWeight: "600" }}>
+              Daily Light
+            </SerifText>
+          </View>
           <Pressable
             onPress={toggle}
             accessibilityLabel="Toggle light or dark mode"
@@ -265,6 +272,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: Spacing.three,
+  },
+  brandRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.two,
+  },
+  logo: {
+    width: 34,
+    height: 34,
+    borderRadius: 999,
   },
   themeButton: {
     borderRadius: 999,
