@@ -9,6 +9,7 @@ import {
 
 import {
   Body,
+  BrandMark,
   Card,
   Chip,
   MutedText,
@@ -76,6 +77,7 @@ export default function NotesScreen() {
 
   return (
     <Screen>
+      <BrandMark />
       <View>
         <Title>Notes & Prayers 📝</Title>
         <Subtitle>

@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import {
   Body,
+  BrandMark,
   MutedText,
   Screen,
   SerifText,
@@ -10,6 +11,7 @@ import {
   Title,
 } from "@/components/ui";
 import { Spacing } from "@/constants/theme";
+import { inviteFriends } from "@/lib/share";
 import { useAppTheme } from "@/lib/theme-context";
 
 export default function PlayScreen() {
@@ -18,6 +20,7 @@ export default function PlayScreen() {
 
   return (
     <Screen>
+      <BrandMark />
       <View>
         <Title>Play & Learn 🎮</Title>
         <Subtitle>
@@ -56,9 +59,46 @@ export default function PlayScreen() {
       >
         <Text style={styles.bigIcon}>🏆</Text>
         <SerifText style={styles.bigTitle}>Bible Quiz</SerifText>
-        <Body>Ten random questions: easy, medium, and hard.</Body>
-        <MutedText>Get a score and a word of encouragement.</MutedText>
+        <Body>50 levels, from simple to seasoned scholar.</Body>
+        <MutedText>Score 100% on a level to earn a certificate.</MutedText>
       </Pressable>
+
+      <View style={styles.smallRow}>
+        <Pressable
+          onPress={inviteFriends}
+          style={({ pressed }) => [
+            styles.smallCard,
+            {
+              backgroundColor: colors.card,
+              borderColor: colors.border,
+              opacity: pressed ? 0.9 : 1,
+            },
+          ]}
+        >
+          <Text style={styles.smallIcon}>📤</Text>
+          <Body style={{ fontWeight: "600" }}>Invite Friends</Body>
+          <MutedText style={{ textAlign: "center" }}>
+            Share Daily Promise with someone.
+          </MutedText>
+        </Pressable>
+        <Pressable
+          onPress={() => router.push("/about")}
+          style={({ pressed }) => [
+            styles.smallCard,
+            {
+              backgroundColor: colors.card,
+              borderColor: colors.border,
+              opacity: pressed ? 0.9 : 1,
+            },
+          ]}
+        >
+          <Text style={styles.smallIcon}>👨🏾‍💻</Text>
+          <Body style={{ fontWeight: "600" }}>About</Body>
+          <MutedText style={{ textAlign: "center" }}>
+            Meet the developer.
+          </MutedText>
+        </Pressable>
+      </View>
     </Screen>
   );
 }
@@ -73,4 +113,14 @@ const styles = StyleSheet.create({
   },
   bigIcon: { fontSize: 44 },
   bigTitle: { fontSize: 22, fontWeight: "600" },
+  smallRow: { flexDirection: "row", gap: Spacing.three },
+  smallCard: {
+    flex: 1,
+    borderRadius: 24,
+    borderWidth: 1,
+    padding: Spacing.four,
+    gap: Spacing.one,
+    alignItems: "center",
+  },
+  smallIcon: { fontSize: 28 },
 });

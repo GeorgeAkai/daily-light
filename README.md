@@ -1,4 +1,4 @@
-# ✦ Daily Light: Bible Verses & Inspiration
+# ✦ Daily Promise: Bible Verses & Inspiration
 
 An inspirational React Native app (built with Expo) that runs on iOS,
 Android, and the web from one codebase.

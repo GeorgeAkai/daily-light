@@ -110,10 +110,10 @@ export default function HomeScreen() {
             <Image
               source={require("@/assets/images/logo.png")}
               style={styles.logo}
-              accessibilityLabel="Daily Light logo"
+              accessibilityLabel="Daily Promise logo"
             />
             <SerifText style={{ color: colors.primary, fontWeight: "600" }}>
-              Daily Light
+              Daily Promise
             </SerifText>
           </View>
           <Pressable
