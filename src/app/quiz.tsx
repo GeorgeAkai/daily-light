@@ -21,7 +21,8 @@ import {
   TOTAL_LEVELS,
   type QuizQuestion,
 } from "@/lib/quizQuestions";
-import { inviteFriends, shareCertificate } from "@/lib/share";
+import { shareCertificatePdf } from "@/lib/certificate";
+import { inviteFriends } from "@/lib/share";
 import { useAppTheme } from "@/lib/theme-context";
 import { useStoredState } from "@/lib/use-stored-state";
 
@@ -394,8 +395,8 @@ export default function QuizScreen() {
       <View style={styles.resultButtons}>
         {perfect && (
           <PrimaryButton
-            label="📤 Share Certificate"
-            onPress={() => shareCertificate(displayName, level)}
+            label="📄 Share Certificate (PDF)"
+            onPress={() => shareCertificatePdf(displayName, level)}
           />
         )}
         {passed && level < TOTAL_LEVELS && (
