@@ -18,13 +18,13 @@ export default function Root({ children }: PropsWithChildren) {
 
         {/* PWA: installable "add to home screen" support */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#8b7ec8" />
-        <meta name="application-name" content="Daily Light" />
+        <meta name="theme-color" content="#161616" />
+        <meta name="application-name" content="Daily Promise" />
 
         {/* iOS "add to home screen" support (Safari ignores the manifest) */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Daily Light" />
+        <meta name="apple-mobile-web-app-title" content="Daily Promise" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 
         <ScrollViewStyleReset />

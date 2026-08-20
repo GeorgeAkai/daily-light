@@ -1,14 +1,14 @@
 {
-  "name": "Daily Light",
-  "short_name": "Daily Light",
+  "name": "Daily Promise",
+  "short_name": "Daily Promise",
   "description": "A daily devotional companion for scripture, notes, and goals.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#8b7ec8",
-  "theme_color": "#8b7ec8",
+  "background_color": "#161616",
+  "theme_color": "#161616",
   "icons": [
     {
       "src": "/icons/icon-192.png",
