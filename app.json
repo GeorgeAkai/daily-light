@@ -19,7 +19,13 @@
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "name": "Daily Promise",
+      "shortName": "Daily Promise",
+      "themeColor": "#161616",
+      "backgroundColor": "#161616",
+      "display": "standalone",
+      "startUrl": "/"
     },
     "plugins": [
       "expo-router",
